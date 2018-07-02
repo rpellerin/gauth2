@@ -1,0 +1,18 @@
+language: node_js
+branches:
+  only:
+  - master
+script:
+- npm run test:ci
+- npm run build
+notifications:
+  email:
+    on_failure: always
+after_success:
+- "./scripts/deploy.sh"
+after_failure:
+- find src/ -type f -iname "*.png" -exec curl --upload-file {} https://transfer.sh/app.png
+  \;
+env:
+  global:
+    secure: nLfWQzPQJIZacI2JhovwRfgs4loY9zawp178fAbZPRv/2ASA1y84/s1UbMZ6Ww0BNh48vdYKBSkhduflB2qroVPs2Cfd++n91Pcfg5etORuntDDX5iSEJA21fCtQrgbiiJ9qgDc+i/3tljmNEOH/d0U3Uva0Jt/O4aVews9dMnoNfutV8n7LnpQ0ujr9UjBtcIB7bcNHw+IrwriDER891LrZUTIqfIqGAeDuL7lG43r8dehWtPSgGooQXKZCBWl6h1Ld6Mzv0EbiDCzPmG8KYs/i+H1gtM/6oYmnKmzeOhPuMHqiQ5f/VLQal9x4KDAyGlE7XwN61emyx7eFJZJcV3+c0LFoeboXdtIVdMdwvclZMXi5knLzGgtzP1FQgM+URM/d/kw5LUoXW6/HgxAJ9k1QXkzTT5H2JzPrH56bDNlWjJyIA4sW0R6BTM7fK4ehpgQsMMRTzzAX6zJg7Vr8bOtlSsP+x1HlIdNFcVtZQB1p082LQnXlvYYlBSY4Z8R0tdNMCvwjrEKtBdFlCJuNsumICCQ+SFaaNqH4LcuUlrr3XvNSaGHWCsOU2AGoRu3jAnLv3DtcfP5d5ZzOhpD0fhEC1FWYBnIx9sc9ky7Bc5B/p8/tWPl7UKvT+SBZlUEkqydFmHKwBvCMk76PnuPRnsJyf6PIFMm4XP/Fl3Nw0Uk=

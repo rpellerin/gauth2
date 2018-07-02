@@ -1,0 +1,101 @@
+{
+  "name": "gauth2",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": "10.5.0"
+  },
+  "dependencies": {
+    "fbjs": "^0.8.17",
+    "jssha": "^2.3.1",
+    "prop-types": "^15.6.2",
+    "qrcode-reader": "^1.0.4",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.4",
+    "babel-jest": "23.2.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react-app": "^3.1.1",
+    "babel-runtime": "6.26.0",
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
+    "chalk": "2.4.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^5.0.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-flowtype": "2.49.3",
+    "eslint-plugin-import": "2.13.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.10.0",
+    "file-loader": "1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "23.2.0",
+    "jest-image-snapshot": "^2.4.3",
+    "postcss-loader": "2.1.5",
+    "prettier-eslint": "^8.8.1",
+    "puppeteer": "^1.5.0",
+    "react-dev-utils": "^5.0.1",
+    "resolve": "1.8.1",
+    "style-loader": "0.21.0",
+    "sw-precache-webpack-plugin": "^0.11.5",
+    "uglifyjs-webpack-plugin": "^1.2.6",
+    "url-loader": "1.0.1",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-manifest-plugin": "^2.0.3",
+    "webpack-serve": "^1.0.4"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-serve ./webpack.config.js",
+    "build": "rm build/* -rf && mkdir -p build && cp public/* build/ && rm -f build/index.html && NODE_ENV=production PUBLIC_URL='./' webpack",
+    "test": "NODE_ENV=test PUBLIC_URL='' jest --env=jsdom --watch",
+    "test:ci": "CI=1 NODE_ENV=test PUBLIC_URL='' jest --env=jsdom",
+    "lint-check": "eslint src"
+  },
+  "jest": {
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ],
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node",
+      "mjs"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}
