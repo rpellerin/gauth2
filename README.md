@@ -15,6 +15,7 @@ Amazon, Linode, Okta and many other services.
 
 ## TODO
 
+- Allow to export/import encrypted JSON
 - Improve accessibility (tab-index, aria, title, role)
 - Thank original project
 - Clean code + add comments
